@@ -2,22 +2,25 @@ const admin = require('firebase-admin');
 var {google} = require('googleapis');
 // If you are running from non-google cloud services
 // You need a serviceAccount json from, downloaded either from google cloud dashboard or firebase
-//  https://console.firebase.google.com/u/0/project/<project-id>/settings/serviceaccounts/adminsdk
-// var serviceAccount = require('./serviceAccount.json');
+// https://console.firebase.google.com/u/2/project/speech-to-text-236211/settings/serviceaccounts/adminsdk
+// var serviceAccount = require('./firebase-service-account.json');
 
 const app = admin.initializeApp({
   // credential: admin.credential.cert(serviceAccount),
-  apiKey: "AIzaSyDiUbOpgOlkH9Z5q9VYe0ETK5L1dbkcuOc",
-  authDomain: "ao-speech-to-tex-1553895570081.firebaseapp.com",
-  databaseURL: "https://ao-speech-to-tex-1553895570081.firebaseio.com",
-  projectId: "ao-speech-to-tex-1553895570081",
-  storageBucket: "ao-speech-to-tex-1553895570081.appspot.com",
-  messagingSenderId: "412805037378",
+  apiKey: "AIzaSyDINaK58bQmZheEjRbjxwBnpmAuvFnigBM",
+  authDomain: "speech-to-text-236211.firebaseapp.com",
+  databaseURL: "https://speech-to-text-236211.firebaseio.com",
+  projectId: "speech-to-text-236211",
+  storageBucket: "",
+  messagingSenderId: "190734931135"
 });
 
 
+// TODO: update to the correct registration token once you ran the client app.
+// Also note that registration token is bound to project, if you changed service account, or login account for your project.
+// You have to invalidate all the existing registration token(if it is been stored anywhere)
 // registration token is obtained from client side, the id to identify the client device
-var registrationToken = 'fFq_H7wPCNc:APA91bGLE0PjzK_f0zeXSpRQpISCR3ePBwiZXfcMaSkCQ7oT2XCXtC_RSUZOD4a6O2aIcQM3mDO7pCyTc4mHiPdWL32akSFvm2xzX90zDqUE4qkXzPBGdkaDajNcA0ZDSsE7yqKR0V5V';
+var registrationToken = 'co2CL-sI1AM:APA91bE4SM3KqCHG5mKz2nI-_ITUYc7V_2jk5CSss0eR9OJ41AymFKu9JRM5V84llUchXab--RReCK-_UUzNVzY3HuEQ-gx82lZPo3oqJfS2e8YW1OjtiOG3aoS2jtpx_mZACtB7pet0';
 // There is a specific message format: https://firebase.google.com/docs/cloud-messaging/concept-options
 var message = {
   token: registrationToken,
@@ -47,7 +50,6 @@ function sendNotification(req, res) {
     });
 }
 exports.sendNotification = sendNotification;
-
 
 
 
