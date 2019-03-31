@@ -1,0 +1,16 @@
+{
+  "name": "firebase-cloud-messaging",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "npm run notification",
+    "notification": "gcloud functions deploy notification --project=ao-speech-to-tex-1553895570081 --runtime=nodejs8 --trigger-http --entry-point=sendNotification --memory=128MB"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "firebase-admin": "^7.2.0",
+    "googleapis": "^39.1.0"
+  }
+}
